@@ -2,7 +2,7 @@
 
 This repository distributes the official Alignbase plugins for Codex and Claude Code.
 
-Each plugin connects the host to Alignbase's OAuth MCP server at `https://app.alignbase.ai/mcp`. The plugin also installs a session-start hook so Alignbase can load or request current context when a session begins.
+Each plugin connects the host to Alignbase's OAuth MCP server at `https://app.alignbase.ai/mcp`. The plugin also installs a session-start hook so Alignbase can load or request current context when a session begins. Codex receives a hook-injected instruction to call `get_current_context`; Claude Code calls the tool directly from its hook.
 
 ## Codex
 
