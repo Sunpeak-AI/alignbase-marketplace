@@ -9,11 +9,11 @@ Each plugin connects the host to Alignbase's OAuth MCP server at `https://app.al
 Add the marketplace and install the plugin:
 
 ```sh
-codex plugin marketplace add Sunpeak-AI/alignbase-marketplace
+codex plugin marketplace add Sunpeak-AI/alignbase-marketplace &&
 codex plugin add alignbase@alignbase
 ```
 
-Complete the Alignbase sign-in prompt during installation. Then open `/hooks`, approve the Alignbase hook, and start a new session.
+Complete the Alignbase sign-in prompt during installation. Then approve the Alignbase hook when Codex requests it and start a new session.
 
 ## Claude Code
 
