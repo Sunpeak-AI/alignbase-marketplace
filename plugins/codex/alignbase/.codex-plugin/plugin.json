@@ -1,0 +1,22 @@
+{
+  "name": "alignbase",
+  "version": "1.0.0",
+  "description": "Load governed Alignbase context and Skills into Codex.",
+  "author": {
+    "name": "Alignbase",
+    "url": "https://alignbase.ai"
+  },
+  "homepage": "https://alignbase.ai",
+  "keywords": ["agents", "context", "governance", "mcp"],
+  "interface": {
+    "displayName": "Alignbase",
+    "shortDescription": "Governed context for Codex.",
+    "longDescription": "Connect Codex to your team's approved Alignbase context and Skills over OAuth.",
+    "developerName": "Alignbase",
+    "category": "Productivity",
+    "capabilities": ["MCP", "Hooks"],
+    "websiteURL": "https://alignbase.ai",
+    "defaultPrompt": "Load my current Alignbase context."
+  },
+  "mcpServers": "./.mcp.json"
+}

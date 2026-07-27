@@ -1,0 +1,20 @@
+{
+  "name": "alignbase",
+  "interface": {
+    "displayName": "Alignbase"
+  },
+  "plugins": [
+    {
+      "name": "alignbase",
+      "source": {
+        "source": "local",
+        "path": "./plugins/codex/alignbase"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

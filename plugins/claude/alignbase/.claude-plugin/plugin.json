@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "name": "alignbase",
+  "displayName": "Alignbase",
+  "version": "1.0.0",
+  "description": "Load governed Alignbase context and Skills at session start.",
+  "author": {
+    "name": "Alignbase",
+    "email": "support@alignbase.ai",
+    "url": "https://alignbase.ai"
+  },
+  "homepage": "https://alignbase.ai",
+  "keywords": ["agents", "context", "governance", "mcp"]
+}
