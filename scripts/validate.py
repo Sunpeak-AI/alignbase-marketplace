@@ -52,7 +52,8 @@ def main() -> None:
     ).stdout
     response = json.loads(hook_output)
     assert response["continue"] is True
-    assert "get_current_context" in response["systemMessage"]
+    assert response["systemMessage"] == "Alignbase session hook ran."
+    assert "AGENTS.md" not in hook_output
 
     claude_manifest = read_json("plugins/claude/alignbase/.claude-plugin/plugin.json")
     assert claude_manifest["name"] == "alignbase"

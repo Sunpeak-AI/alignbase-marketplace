@@ -1,6 +1,6 @@
 {
   "name": "alignbase",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Load governed Alignbase context and Skills into Codex.",
   "author": {
     "name": "Alignbase",

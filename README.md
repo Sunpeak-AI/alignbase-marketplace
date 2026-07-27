@@ -15,8 +15,6 @@ codex plugin add alignbase@alignbase
 
 Open `/mcp` in Codex and connect Alignbase. Then open `/hooks`, approve the Alignbase hook, and start a new session.
 
-Codex session hooks cannot call MCP tools or add tool output to the model context yet. Keep the short Alignbase startup instruction in your global `AGENTS.md` until Codex adds that hook support.
-
 ## Claude Code
 
 Add the marketplace and install the plugin:
