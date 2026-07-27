@@ -1,12 +1,12 @@
 {
   "name": "alignbase",
-  "description": "Official Alignbase plugins for Claude Code.",
+  "description": "Official Alignbase plugins for Claude Desktop and Claude Code.",
   "owner": {
     "name": "Alignbase",
     "email": "support@alignbase.ai"
   },
   "metadata": {
-    "version": "1.0.4"
+    "version": "1.0.5"
   },
   "plugins": [
     {

@@ -1,6 +1,6 @@
 # Alignbase plugin marketplace
 
-This repository distributes the official Alignbase plugins for Codex and Claude Code.
+This repository distributes the official Alignbase plugins for Codex, Claude Desktop, and Claude Code.
 
 Each plugin connects the host to Alignbase's OAuth MCP server at `https://app.alignbase.ai/mcp`. The plugin also installs a session-start hook so Alignbase can load or request current context when a session begins. Codex receives a hook-injected instruction to call `get_current_context`; Claude Code calls the tool directly from its hook.
 
@@ -14,6 +14,18 @@ codex plugin add alignbase@alignbase
 ```
 
 Complete the Alignbase sign-in prompt during installation. Then approve the Alignbase hook when Codex requests it and start a new session.
+
+## Claude Desktop
+
+Open **Customize > Plugins**. Under **Personal plugins**, select **+ > Add marketplace > Add from a repository**, then enter:
+
+```text
+https://github.com/Sunpeak-AI/alignbase-marketplace
+```
+
+Open the new Alignbase marketplace and install Alignbase. Complete the Alignbase sign-in prompt, then start a new Cowork or local Code session.
+
+The `SessionStart` hook runs in Cowork and Code. Claude Desktop Chat can use the bundled connector, but Chat does not run plugin hooks.
 
 ## Claude Code
 
@@ -29,9 +41,9 @@ Open `/mcp` in Claude Code and authenticate Alignbase. Start a new session after
 ## Repository layout
 
 - `.agents/plugins/marketplace.json` is the Codex marketplace catalog.
-- `.claude-plugin/marketplace.json` is the Claude Code marketplace catalog.
+- `.claude-plugin/marketplace.json` is the Claude marketplace catalog.
 - `plugins/codex/alignbase` contains the Codex plugin.
-- `plugins/claude/alignbase` contains the Claude Code plugin.
+- `plugins/claude/alignbase` contains the Claude plugin for Desktop and Code.
 
 ## Publishing updates
 
