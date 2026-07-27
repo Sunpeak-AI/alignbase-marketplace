@@ -13,7 +13,7 @@ codex plugin marketplace add Sunpeak-AI/alignbase-marketplace
 codex plugin add alignbase@alignbase
 ```
 
-Open `/mcp` in Codex and connect Alignbase. Then open `/hooks`, approve the Alignbase hook, and start a new session.
+Complete the Alignbase sign-in prompt during installation. Then open `/hooks`, approve the Alignbase hook, and start a new session.
 
 ## Claude Code
 
