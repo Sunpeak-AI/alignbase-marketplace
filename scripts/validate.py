@@ -57,6 +57,8 @@ def main() -> None:
     claude_manifest = read_json("plugins/claude/alignbase/.claude-plugin/plugin.json")
     assert claude_manifest["name"] == "alignbase"
     assert_mcp_server("plugins/claude/alignbase/.mcp.json")
+    assert codex_manifest["version"] == claude_manifest["version"]
+    assert claude_catalog["metadata"]["version"] == claude_manifest["version"]
 
     claude_hooks = read_json("plugins/claude/alignbase/hooks/hooks.json")
     claude_hook = claude_hooks["hooks"]["SessionStart"][0]["hooks"][0]

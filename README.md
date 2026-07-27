@@ -34,3 +34,14 @@ Open `/mcp` in Claude Code and authenticate Alignbase. Start a new session after
 - `.claude-plugin/marketplace.json` is the Claude Code marketplace catalog.
 - `plugins/codex/alignbase` contains the Codex plugin.
 - `plugins/claude/alignbase` contains the Claude Code plugin.
+
+## Publishing updates
+
+Keep the Codex manifest version, Claude Code manifest version, and Claude Code marketplace metadata version in sync. Bump all three before publishing any plugin change because both hosts cache installed plugin versions.
+
+Run the local checks before pushing:
+
+```sh
+python3 scripts/validate.py
+claude plugin validate .
+```
