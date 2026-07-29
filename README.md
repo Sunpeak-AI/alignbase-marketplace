@@ -6,10 +6,11 @@ This repository distributes the official Alignbase plugins for Codex, Claude Des
 
 ```sh
 codex plugin marketplace add Sunpeak-AI/alignbase-marketplace &&
-codex plugin add alignbase@alignbase
+codex plugin add alignbase@alignbase &&
+codex mcp add alignbase --url https://app.alignbase.ai/mcp --oauth-client-id YOUR_CLIENT_ID
 ```
 
-Sign in, approve Alignbase in `/hooks`, and start a new session.
+Run `codex`, approve the Alignbase hook for calling the Alignbase context MCP server, then start a new session to confirm access to Alignbase context.
 
 ## Claude Desktop
 
@@ -19,13 +20,14 @@ Open **Customize > Plugins > + > Add marketplace > Add from a repository**.
 https://github.com/Sunpeak-AI/alignbase-marketplace
 ```
 
-Install Alignbase, sign in, and start a new Cowork or local Code session.
+Install Alignbase, enter the OAuth Client ID from Alignbase, sign in, and start a new Cowork or local Code session.
 
 ## Claude Code
 
 ```sh
-claude plugin marketplace add Sunpeak-AI/alignbase-marketplace
-claude plugin install alignbase@alignbase
+claude plugin marketplace add Sunpeak-AI/alignbase-marketplace &&
+claude plugin install alignbase@alignbase --config oauth_client_id=YOUR_CLIENT_ID &&
+claude
 ```
 
 Run `/mcp`, connect Alignbase, and start a new session.

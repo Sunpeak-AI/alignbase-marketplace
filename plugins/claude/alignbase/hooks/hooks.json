@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "mcp_tool",
-            "server": "alignbase",
+            "server": "plugin:alignbase:alignbase",
             "tool": "get_current_context",
             "input": {}
           }

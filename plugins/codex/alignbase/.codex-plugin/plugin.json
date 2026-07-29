@@ -1,6 +1,6 @@
 {
   "name": "alignbase",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "Load governed Alignbase context and Skills into Codex.",
   "author": {
     "name": "Alignbase",
@@ -16,7 +16,6 @@
     "category": "Productivity",
     "capabilities": ["MCP", "Hooks"],
     "websiteURL": "https://alignbase.ai",
-    "defaultPrompt": "Load my current Alignbase context."
-  },
-  "mcpServers": "./.mcp.json"
+    "defaultPrompt": ["Load my current Alignbase context."]
+  }
 }

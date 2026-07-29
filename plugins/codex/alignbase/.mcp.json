@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "alignbase": {
-      "type": "http",
-      "url": "https://app.alignbase.ai/mcp"
-    }
-  }
-}

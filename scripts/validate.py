@@ -36,8 +36,10 @@ def main() -> None:
 
     codex_manifest = read_json("plugins/codex/alignbase/.codex-plugin/plugin.json")
     assert codex_manifest["name"] == "alignbase"
-    assert codex_manifest["mcpServers"] == "./.mcp.json"
-    assert_mcp_server("plugins/codex/alignbase/.mcp.json")
+    assert "mcpServers" not in codex_manifest
+    assert codex_manifest["interface"]["defaultPrompt"] == [
+        "Load my current Alignbase context."
+    ]
 
     codex_hooks = read_json("plugins/codex/alignbase/hooks/hooks.json")
     codex_hook = codex_hooks["hooks"]["SessionStart"][0]["hooks"][0]
@@ -61,7 +63,17 @@ def main() -> None:
 
     claude_manifest = read_json("plugins/claude/alignbase/.claude-plugin/plugin.json")
     assert claude_manifest["name"] == "alignbase"
+    assert claude_manifest["userConfig"]["oauth_client_id"] == {
+        "type": "string",
+        "title": "OAuth Client ID",
+        "description": "Paste the OAuth Client ID from Alignbase.",
+        "required": True,
+    }
     assert_mcp_server("plugins/claude/alignbase/.mcp.json")
+    claude_mcp = read_json("plugins/claude/alignbase/.mcp.json")
+    assert claude_mcp["mcpServers"]["alignbase"]["oauth"]["clientId"] == (
+        "${user_config.oauth_client_id}"
+    )
     assert codex_manifest["version"] == claude_manifest["version"]
     assert claude_catalog["metadata"]["version"] == claude_manifest["version"]
 
@@ -69,7 +81,7 @@ def main() -> None:
     claude_hook = claude_hooks["hooks"]["SessionStart"][0]["hooks"][0]
     assert claude_hook == {
         "type": "mcp_tool",
-        "server": "alignbase",
+        "server": "plugin:alignbase:alignbase",
         "tool": "get_current_context",
         "input": {},
     }

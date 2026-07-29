@@ -2,7 +2,10 @@
   "mcpServers": {
     "alignbase": {
       "type": "http",
-      "url": "https://app.alignbase.ai/mcp"
+      "url": "https://app.alignbase.ai/mcp",
+      "oauth": {
+        "clientId": "${user_config.oauth_client_id}"
+      }
     }
   }
 }
