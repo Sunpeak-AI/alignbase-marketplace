@@ -1,18 +1,17 @@
 # Alignbase plugin marketplace
 
-This repository distributes the official Alignbase plugins for Codex, Claude Desktop, and Claude Code.
+This repository contains the official Alignbase plugin packages for the OpenAI universal plugin directory, the Claude plugin directory, and Cursor Marketplace.
 
-## Codex
+## OpenAI
 
 ```sh
 codex plugin marketplace add Sunpeak-AI/alignbase-marketplace &&
-codex plugin add alignbase@alignbase &&
-codex mcp add alignbase --url https://app.alignbase.ai/mcp --oauth-client-id YOUR_CLIENT_ID
+codex plugin add alignbase@alignbase
 ```
 
-Run `codex`, approve the Alignbase hook for calling the Alignbase context MCP server, then start a new session to confirm access to Alignbase context.
+Enable the plugin, connect the Alignbase MCP server when prompted, and sign in to Alignbase. In Codex, approve the startup hook and begin a new session.
 
-## Claude Desktop
+## Claude
 
 Open **Customize > Plugins > + > Add marketplace > Add from a repository**.
 
@@ -20,32 +19,38 @@ Open **Customize > Plugins > + > Add marketplace > Add from a repository**.
 https://github.com/Sunpeak-AI/alignbase-marketplace
 ```
 
-Install Alignbase, enter the OAuth Client ID from Alignbase, sign in, and start a new Cowork or local Code session.
-
-## Claude Code
+Or install with Claude Code:
 
 ```sh
 claude plugin marketplace add Sunpeak-AI/alignbase-marketplace &&
-claude plugin install alignbase@alignbase --config oauth_client_id=YOUR_CLIENT_ID &&
+claude plugin install alignbase@alignbase &&
 claude
 ```
 
-Run `/mcp`, connect Alignbase, and start a new session.
+Connect the Alignbase MCP server when prompted, sign in, and start a new Cowork or Claude Code session.
+
+## Cursor
+
+The Cursor package is in `plugins/cursor/alignbase`. Install it from Cursor Marketplace after publication, or test it as a local plugin before submission.
 
 ## Repository layout
 
 - `.agents/plugins/marketplace.json` is the Codex marketplace catalog.
 - `.claude-plugin/marketplace.json` is the Claude marketplace catalog.
+- `.cursor-plugin/marketplace.json` is the Cursor marketplace catalog.
 - `plugins/codex/alignbase` contains the Codex plugin.
-- `plugins/claude/alignbase` contains the Claude plugin for Desktop and Code.
+- `plugins/claude/alignbase` contains the Claude plugin for Cowork and Claude Code.
+- `plugins/cursor/alignbase` contains the Cursor plugin.
 
 ## Publishing updates
 
-Keep the Codex manifest version, Claude Code manifest version, and Claude Code marketplace metadata version in sync. Bump all three before publishing any plugin change because both hosts cache installed plugin versions.
+Keep all three plugin manifest versions and both marketplace metadata versions in sync. Bump them before publishing a plugin update because hosts cache installed plugin versions.
 
 Run the local checks before pushing:
 
 ```sh
 python3 scripts/validate.py
-claude plugin validate .
+claude plugin validate plugins/claude/alignbase --strict
 ```
+
+See `SUBMISSION.md` for the store fields, review checks, and unresolved submission blockers.

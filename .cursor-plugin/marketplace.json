@@ -1,0 +1,19 @@
+{
+  "name": "alignbase",
+  "owner": {
+    "name": "Alignbase",
+    "email": "support@alignbase.ai"
+  },
+  "metadata": {
+    "description": "The official Alignbase plugin marketplace.",
+    "version": "1.0.9"
+  },
+  "plugins": [
+    {
+      "name": "alignbase",
+      "source": "plugins/cursor/alignbase",
+      "description": "Load your team's approved Alignbase context and Skills at session start.",
+      "logo": "plugins/cursor/alignbase/assets/alignbase-logo.svg"
+    }
+  ]
+}

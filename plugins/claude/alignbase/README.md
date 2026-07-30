@@ -1,9 +1,9 @@
 # Alignbase for Claude
 
-## Claude Desktop
+Install and enable the plugin, connect the Alignbase MCP server when prompted, and sign in to Alignbase. Start a new Cowork or Claude Code session after authentication.
 
-Install the plugin, enter the OAuth Client ID from Alignbase, sign in, and start a new Cowork or local Code session.
+The plugin loads the context and Skills assigned to the current agent. Read access works for every connected agent. Write and publish tools only work when the agent has the matching Alignbase permission.
 
-## Claude Code
+For Claude Code, use `/mcp` to inspect or reconnect the server. If setup fails, confirm that `https://app.alignbase.ai/mcp` is reachable and start a new session after reconnecting.
 
-Install the plugin with `--config oauth_client_id=YOUR_CLIENT_ID`, run `/mcp`, connect Alignbase, and start a new session.
+Claude's plugin manifest cannot set the directory icon. After publication, set the icon from **Admin settings > Directory > Submissions** using a logo from `assets/`.

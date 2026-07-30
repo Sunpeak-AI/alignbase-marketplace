@@ -1,15 +1,15 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "alignbase",
-  "displayName": "Alignbase",
   "version": "1.0.9",
   "description": "Load your team's approved Alignbase context and Skills at session start.",
   "author": {
     "name": "Alignbase",
-    "email": "support@alignbase.ai",
-    "url": "https://alignbase.ai"
+    "email": "support@alignbase.ai"
   },
   "homepage": "https://alignbase.ai",
   "repository": "https://github.com/Sunpeak-AI/alignbase-marketplace",
-  "keywords": ["agents", "context", "governance", "mcp"]
+  "keywords": ["agents", "context", "governance", "mcp"],
+  "logo": "assets/alignbase-logo.svg",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./mcp.json"
 }

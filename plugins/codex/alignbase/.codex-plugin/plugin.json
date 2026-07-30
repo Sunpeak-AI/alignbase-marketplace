@@ -1,21 +1,30 @@
 {
   "name": "alignbase",
-  "version": "1.0.8",
-  "description": "Load governed Alignbase context and Skills into Codex.",
+  "version": "1.0.9",
+  "description": "Load your team's approved Alignbase context and Skills at session start.",
   "author": {
     "name": "Alignbase",
+    "email": "support@alignbase.ai",
     "url": "https://alignbase.ai"
   },
   "homepage": "https://alignbase.ai",
+  "repository": "https://github.com/Sunpeak-AI/alignbase-marketplace",
   "keywords": ["agents", "context", "governance", "mcp"],
+  "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Alignbase",
-    "shortDescription": "Governed context for Codex.",
-    "longDescription": "Connect Codex to your team's approved Alignbase context and Skills over OAuth.",
+    "shortDescription": "Your team's approved context.",
+    "longDescription": "Connect ChatGPT and Codex to the context and Skills assigned to the current agent in Alignbase. MCP tools load or manage Alignbase context when the agent has permission. In Codex, an approved startup hook loads context when a session starts.",
     "developerName": "Alignbase",
     "category": "Productivity",
-    "capabilities": ["MCP", "Hooks"],
+    "capabilities": ["Read context", "Manage context", "Session startup"],
     "websiteURL": "https://alignbase.ai",
-    "defaultPrompt": ["Load my current Alignbase context."]
+    "defaultPrompt": [
+      "Load the Alignbase context assigned to this agent.",
+      "List the Alignbase Skills available to this agent."
+    ],
+    "brandColor": "#075CF5",
+    "composerIcon": "./assets/alignbase-logo.png",
+    "logo": "./assets/alignbase-logo.png"
   }
 }
