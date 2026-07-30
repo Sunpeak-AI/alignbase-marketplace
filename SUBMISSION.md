@@ -6,14 +6,11 @@ Reviewed against the public store documentation on July 30, 2026.
 
 The three packages have store-native manifests, dynamic OAuth configuration, the same 400 by 400 Alignbase logo with a blue background, and public source paths in this repository. Codex uses the PNG from its `interface` metadata, and Cursor uses the repo-relative SVG from both its marketplace entry and plugin manifest. Claude's plugin manifest and marketplace schema do not support a logo field, and the current plugin submission form does not ask for one. Anthropic stores the icon as separate directory-listing metadata after publication.
 
-Do not make the final policy attestations yet. These items remain open:
+The public terms, privacy, and support pages were verified on July 30, 2026. Do not make the final policy attestations yet. These items remain open:
 
-1. `https://alignbase.ai/privacy`, `https://alignbase.ai/terms`, and `https://alignbase.ai/support` return 404. OpenAI requires all three public URLs. Anthropic and Cursor require an accessible privacy policy and support channel for remote services.
-2. Anthropic's Software Directory Policy section 2F bars instructional software from dynamically pulling behavioral instructions from an external source for Claude to execute. Alignbase's startup context is that exact product behavior. Get written approval from Anthropic or ship a Claude-specific design that does not pull behavioral instructions before submitting.
-3. Cursor's Publisher Terms section 3.1 says a Marketplace plugin must be available at no cost and may not charge users directly or indirectly for access to or use of the plugin. Get written confirmation that a free plugin connecting to the paid Alignbase service is allowed before accepting the terms.
-4. Cursor's docs say Marketplace plugins are open source. Choose and add a permitted license, such as MIT, BSD, or Apache 2.0, before submission. Cursor bars GPL, AGPL, and LGPL. Do not add a license field to the manifests until the company approves the license.
-5. Create a reviewer account with sample context and Skills. OpenAI requires credentials that work without MFA, SMS, email confirmation, or a private network. Anthropic also requires a standard test account with sample data.
-6. OpenAI generates the domain verification token during submission. Deploy that exact token at `https://app.alignbase.ai/.well-known/openai-apps-challenge` before the final tool scan.
+1. Anthropic's Software Directory Policy section 2F bars instructional software from dynamically pulling behavioral instructions from an external source for Claude to execute. Alignbase's startup context is that exact product behavior. Get written approval from Anthropic or ship a Claude-specific design that does not pull behavioral instructions before submitting.
+2. Create a reviewer account with sample context and Skills. OpenAI requires credentials that work without MFA, SMS, email confirmation, or a private network. Anthropic also requires a standard test account with sample data.
+3. OpenAI generates the domain verification token during submission. Deploy that exact token at `https://app.alignbase.ai/.well-known/openai-apps-challenge` before the final tool scan.
 
 The metadata does not claim an endorsement, compare Alignbase with another product, hide paid actions, or promise unsupported features. The plugins contain no API keys, fixed OAuth client IDs, passwords, or telemetry configuration.
 
@@ -41,9 +38,9 @@ The metadata does not claim an endorsement, compare Alignbase with another produ
 | Package description | Load your team's approved Alignbase context and Skills at session start. |
 | Listing category | Productivity |
 | Logo | `assets/alignbase-logo.png`, 400 by 400 PNG, white Alignbase mark on a blue background. Cursor also includes the equivalent SVG. |
-| Support URL | Blocked until a public support page exists |
-| Privacy policy URL | Blocked until a public privacy policy exists |
-| Terms URL | Blocked until public terms exist |
+| Support URL | `https://alignbase.ai/support/` |
+| Privacy policy URL | `https://alignbase.ai/privacy/` |
+| Terms URL | `https://alignbase.ai/terms/` |
 
 ## OpenAI universal plugin directory
 
@@ -68,14 +65,14 @@ One approved submission is published to the universal directory shared by ChatGP
 | Submission type | With MCP |
 | Plugin name | Alignbase |
 | Short description | Your team's approved context. |
-| Long description | Connect ChatGPT and Codex to the context and Skills assigned to the current agent in Alignbase. MCP tools load or manage Alignbase context when the agent has permission. In Codex, an approved startup hook loads context when a session starts. |
+| Long description | Connect ChatGPT and Codex to the context and Skills assigned to the current agent in Alignbase. MCP tools load or manage Alignbase context when the agent has permission. In Codex, a user-approved startup hook loads context when a session starts. |
 | Developer Identity | Select the verified Alignbase business identity |
 | Category | Productivity |
 | Logo | Upload `plugins/codex/alignbase/assets/alignbase-logo.png` |
 | Website | `https://alignbase.ai` |
-| Support URL | Add the approved public support URL |
-| Privacy policy URL | Add the approved public privacy policy URL |
-| Terms URL | Add the approved public terms URL |
+| Support URL | `https://alignbase.ai/support/` |
+| Privacy policy URL | `https://alignbase.ai/privacy/` |
+| Terms URL | `https://alignbase.ai/terms/` |
 | Screenshots | None. The plugin has no UI, and OpenAI says not to submit screenshots for plugins without UI |
 | MCP URL type | Universal |
 | MCP server URL | `https://app.alignbase.ai/mcp` |
@@ -145,7 +142,7 @@ Before submission, scan the production MCP server in the portal and inspect ever
 
 1. Give the submitter Apps Management Write access in the OpenAI Platform organization.
 2. Complete Alignbase business verification in the same organization.
-3. Publish the support, privacy, and terms pages.
+3. Confirm the support, privacy, and terms pages are live.
 4. Create and seed the reviewer account.
 5. Open the portal, choose **Create plugin**, then choose **With MCP**.
 6. Complete the Info fields above.
@@ -182,8 +179,9 @@ The same Claude directory listing is available in Cowork and Claude Code. In Cla
 | Developer | Alignbase |
 | Contact | `support@alignbase.ai` |
 | Homepage | `https://alignbase.ai` |
-| Privacy policy | Add the approved public privacy policy URL |
-| Support | Add the approved public support URL |
+| Privacy policy | `https://alignbase.ai/privacy/` |
+| Terms | `https://alignbase.ai/terms/` |
+| Support | `https://alignbase.ai/support/` |
 | Logo | The plugin form has no image field. After publication, set the listing icon in **Admin settings > Directory > Submissions** using `plugins/claude/alignbase/assets/alignbase-logo.png`. |
 | Test account | Add the reviewer account after it is created |
 | MCP endpoint | `https://app.alignbase.ai/mcp` |
@@ -201,11 +199,11 @@ Do not submit the current Claude package until Anthropic answers the section 2F 
 
 Removing the hook alone does not fully resolve the issue because the MCP tool still returns behavioral instructions. A compliant alternative would need Anthropic's approval or a Claude-specific mode that returns reference material without asking Claude to execute it as behavioral guidance. That would change the product behavior, so it should be a product decision.
 
-Apart from section 2F, the package now uses the current manifest schema, has narrow package copy, contains no fixed OAuth client ID, and uses the production OAuth discovery flow. The remote MCP server uses Streamable HTTP, secure OAuth 2.0, and tool annotations. Claude's manifest and marketplace schemas have no logo field. The directory listing icon must be set as listing metadata after publication. The public privacy policy, verified support contact, reviewer account, and at least three examples are still required.
+Apart from section 2F, the package now uses the current manifest schema, has narrow package copy, contains no fixed OAuth client ID, and uses the production OAuth discovery flow. The remote MCP server uses Streamable HTTP, secure OAuth 2.0, and tool annotations. Claude's manifest and marketplace schemas have no logo field. The directory listing icon must be set as listing metadata after publication. The privacy policy and support page are public. A reviewer account and at least three examples are still required.
 
 ### Submission steps after policy approval
 
-1. Publish the privacy and support pages and create the reviewer account.
+1. Create the reviewer account.
 2. Run `claude plugin validate plugins/claude/alignbase --strict`.
 3. Test the plugin from the public GitHub source in a new Cowork session and a new Claude Code session.
 4. Use the Claude.ai form if the submitter belongs to a Team or Enterprise organization and has directory management access. Otherwise use the Console form with a Developer, Admin, or Owner role.
@@ -235,19 +233,17 @@ Apart from section 2F, the package now uses the current manifest schema, has nar
 | GitHub repository | `https://github.com/Sunpeak-AI/alignbase-marketplace` |
 | Owner | Select the signed-in company account or team |
 | Website URL | `https://alignbase.ai` |
-| Publisher Terms | Accept only after the fee and license questions are resolved |
+| Publisher Terms | Accept after the company approves the remaining license grant, indemnity, and data obligations |
 
 The repository-level Cursor catalog is `.cursor-plugin/marketplace.json`. Its `alignbase` entry points to `plugins/cursor/alignbase`, where `.cursor-plugin/plugin.json` declares the MCP server, hook, metadata, and relative logo.
 
 ### Submission steps
 
-1. Choose and add a permitted open-source license, then add the same license identifier to the Cursor manifest.
-2. Publish the privacy, terms, and support pages.
-3. Ask `marketplace-publishing@cursor.com` for written confirmation that a free plugin may connect to a paid Alignbase account under section 3.1.
-4. Test the package as a local plugin under `~/.cursor/plugins/local/alignbase`. Confirm the startup hook, OAuth flow, `get_current_context`, read tools, and permission failures.
-5. Push the package and logo to the public repository. Confirm the raw logo URL returns the square blue-background SVG.
-6. Sign in at the publisher application and complete the fields above.
-7. Accept the Publisher Terms only after the company approves the license grant, indemnity, data obligations, and fee interpretation.
-8. Submit the repository for manual review. Address review feedback and request re-indexing after later updates.
+1. Confirm the privacy, terms, and support pages are live.
+2. Test the package as a local plugin under `~/.cursor/plugins/local/alignbase`. Confirm the startup hook, OAuth flow, `get_current_context`, read tools, and permission failures.
+3. Push the package and logo to the public repository. Confirm the raw logo URL returns the square blue-background SVG.
+4. Sign in at the publisher application and complete the fields above.
+5. Accept the Publisher Terms after the company approves the remaining license grant, indemnity, and data obligations.
+6. Submit the repository for manual review. Address review feedback and request re-indexing after later updates.
 
-The current copy calls the product `Cursor` exactly, makes no endorsement claim, and contains no comparative or unsupported claims. The plugin only sends requests to Alignbase and contains no model training, advertising, data sale, or third-party transfer behavior. Confirm those statements against the final privacy policy and production telemetry before making the publisher warranty.
+The repository and all three plugin manifests use the MIT License. The company has confirmed that a free Cursor plugin may connect to the paid Alignbase service. The current copy calls the product `Cursor` exactly, makes no endorsement claim, and contains no comparative or unsupported claims. The plugin only sends requests to Alignbase and contains no model training, advertising, data sale, or third-party transfer behavior. Confirm those statements against production telemetry before making the publisher warranty.

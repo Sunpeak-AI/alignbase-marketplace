@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "alignbase",
   "displayName": "Alignbase",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Load your team's approved Alignbase context and Skills at session start.",
   "author": {
     "name": "Alignbase",
@@ -11,5 +11,6 @@
   },
   "homepage": "https://alignbase.ai",
   "repository": "https://github.com/Sunpeak-AI/alignbase-marketplace",
+  "license": "MIT",
   "keywords": ["agents", "context", "governance", "mcp"]
 }

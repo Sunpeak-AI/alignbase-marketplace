@@ -134,6 +134,9 @@ def assert_no_fixed_oauth_config(plugin_root: str) -> None:
 
 
 def main() -> None:
+    root_license = (ROOT / "LICENSE").read_bytes()
+    assert root_license.startswith(b"MIT License\n")
+
     codex_catalog = read_json(".agents/plugins/marketplace.json")
     assert codex_catalog["name"] == "alignbase"
     assert codex_catalog["plugins"][0]["source"] == {
@@ -237,6 +240,13 @@ def main() -> None:
         "plugins/claude/alignbase",
         "plugins/cursor/alignbase",
     ):
+        manifest_name = {
+            "plugins/codex/alignbase": ".codex-plugin/plugin.json",
+            "plugins/claude/alignbase": ".claude-plugin/plugin.json",
+            "plugins/cursor/alignbase": ".cursor-plugin/plugin.json",
+        }[plugin_root]
+        assert read_json(f"{plugin_root}/{manifest_name}")["license"] == "MIT"
+        assert (ROOT / plugin_root / "LICENSE").read_bytes() == root_license
         assert_no_fixed_oauth_config(plugin_root)
 
     claude_hooks = read_json("plugins/claude/alignbase/hooks/hooks.json")

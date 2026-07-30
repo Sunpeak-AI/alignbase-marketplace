@@ -54,3 +54,7 @@ claude plugin validate plugins/claude/alignbase --strict
 ```
 
 See `SUBMISSION.md` for the store fields, review checks, and unresolved submission blockers.
+
+## License
+
+The plugin packages in this repository are available under the [MIT License](LICENSE).
